@@ -72,5 +72,14 @@
       gkeApiVersion: "",
       workflowName: "tfserving",
     },
+    deployment_tests: {
+      bucket: "kubeflow-ci-temp",
+      name: "somefakename",
+      cluster_name: "somefakeclustername",
+      namespace: "kubeflow-test-infra",
+      prow_env: "",
+      gkeApiVersion: "",
+      workflowName: "deploymenttests"
+    },
   },
 }
