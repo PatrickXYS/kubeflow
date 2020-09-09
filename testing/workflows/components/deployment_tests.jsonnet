@@ -67,6 +67,18 @@ local buildTemplate(step_name, command, working_dir=null, env_vars=[], sidecars=
         value: cluster,
       },
       {
+        name: "DESIRED_NODE",
+        value: std.toString(params.desired_node),
+      },
+      {
+        name: "MIN_NODE",
+        value: std.toString(params.min_node),
+      },
+      {
+        name: "MAX_NODE",
+        value: std.toString(params.max_node),
+      },
+      {
           // EKS Namespace
           name: "EKS_NAMESPACE",
           value: namespace,
