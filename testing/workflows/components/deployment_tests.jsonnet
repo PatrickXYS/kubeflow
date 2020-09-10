@@ -63,20 +63,20 @@ local buildTemplate(step_name, command, working_dir=null, env_vars=[], sidecars=
       },
       {
         // EKS cluster name
-        name: "EKS_CLUSTER",
+        name: "CLUSTER_NAME",
         value: cluster,
       },
       {
         name: "DESIRED_NODE",
-        value: std.toString(params.desired_node),
+        value: "2",
       },
       {
         name: "MIN_NODE",
-        value: std.toString(params.min_node),
+        value: "1",
       },
       {
         name: "MAX_NODE",
-        value: std.toString(params.max_node),
+        value: "4",
       },
       {
           // EKS Namespace
@@ -140,8 +140,8 @@ local dagTemplates = [
     dependencies: ["create-eks-cluster"],
   },
   {
-    template: buildTemplate("check-deployment-status",
-                            ["/usr/local/bin/check-deployment-status.sh"]), // check-deployment-status
+    template: buildTemplate("check-load-balancer-status",
+                            ["/usr/local/bin/check-load-balancer-status.sh"]), // check-deployment-status
     dependencies: ["deploy-kubeflow"],
   },
 ];
