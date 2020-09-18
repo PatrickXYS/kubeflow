@@ -136,13 +136,20 @@ local dagTemplates = [
   },
   {
     template: buildTemplate("deploy-kubeflow",
-                            ["/usr/local/bin/deploy-kubeflow.sh"]), // deploy-kubeflow
+                            ["/usr/local/bin/deploy-kubeflow.sh"],
+                            working_dir=srcRootDir), // deploy-kubeflow
     dependencies: ["create-eks-cluster"],
   },
   {
     template: buildTemplate("check-load-balancer-status",
                             ["/usr/local/bin/check-load-balancer-status.sh"]), // check-deployment-status
     dependencies: ["deploy-kubeflow"],
+  },
+  {
+    template: buildTemplate("uninstall-kubeflow",
+                            ["/usr/local/bin/uninstall-kubeflow.sh"],
+                            working_dir=srcRootDir), // uninstall-kubeflow
+    dependencies: ["check-load-balancer-status"],
   },
 ];
 

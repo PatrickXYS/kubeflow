@@ -78,7 +78,6 @@
       cluster_name: "somefakeclustername",
       namespace: "kubeflow-test-infra",
       prow_env: "",
-      gkeApiVersion: "",
       workflowName: "deploymenttests"
     },
   },
