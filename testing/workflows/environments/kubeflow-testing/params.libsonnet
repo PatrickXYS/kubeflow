@@ -25,5 +25,10 @@ params {
       prow_env: 'JOB_NAME=kfctl-test,JOB_TYPE=presubmit,REPO_NAME=kubeflow,REPO_OWNER=kubeflow,BUILD_NUMBER=0325-153457,PULL_NUMBER=2795',
       deleteKubeflow: false,
     },
+    deployment_tests: {
+      namespace: 'kubeflow-test-infra',
+      name: 'xyshow-kfctl-manifests-test-1111-2222-333333',
+      prow_env: 'JOB_NAME=kfctl-test,JOB_TYPE=periodic,REPO_NAME=kubeflow,REPO_OWNER=PatrickXYS,BUILD_NUMBER=2222-333333,PULL_NUMBER=1111',
+    },
   },
 }
